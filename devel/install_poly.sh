@@ -18,6 +18,10 @@ POLY_VERSION=${POLY_VERSION:-v5.7.1}
 
 PREFIX=${CACHE_DIR}/polyml
 
+if [ -d "$PREFIX" ]; then
+  echo "polyml is already available in the cache, exiting."
+  exit 0
+fi
 
 # prepare directories
 mkdir polyml_src

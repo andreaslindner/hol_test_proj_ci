@@ -10,19 +10,20 @@ language: c
 dist: xenial
 env: ENV_EXPORT_SCRIPT=devel/travis_env.sh
 
+cache:
+  directories:
+    - $HOME/cache
 
 jobs:
   include:
-    - stage: "Prepare polyml"
-      before_script: devel/install_poly.sh
+    - stage: "Prepare polyml & HOL4"
+      before_script:
+        - devel/install_poly.sh
       script: true
 
-#    - stage: "Prepare hol4"
-#      before_script: devel/install_hol4.sh
-#      script: true
-
     - stage: "Compilation"
-      before_script: devel/install_hol4.sh
+      before_script:
+        - devel/install_hol4.sh
       script: devel/compile.sh
 
 
