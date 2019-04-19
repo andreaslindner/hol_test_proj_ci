@@ -8,7 +8,8 @@ val _ = new_theory "some";
 val heavy_thm = store_thm("heavy_thm", ``
   FINITE (UNIV: 'a word -> bool)
 ``,
-  METIS_TAC [WORD_FINITE]
+  REWRITE_TAC []
+(*  METIS_TAC [WORD_FINITE]*)
 );
 
 

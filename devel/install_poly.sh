@@ -3,6 +3,9 @@
 # exit immediately if an error happens
 set -e
 
+# setup environment
+. ${ENV_EXPORT_SCRIPT}
+
 # go to cache directory
 mkdir -p ${CACHE_DIR}
 cd ${CACHE_DIR}

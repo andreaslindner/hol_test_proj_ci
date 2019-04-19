@@ -5,17 +5,24 @@ notifications:
     on_success: always
     on_failure: always
 
+
 language: c
 dist: xenial
-env:
-  - CACHE_DIR=$HOME/cache PATH=$CACHE_DIR/polyml/bin:$PATH LD_LIBRARY_PATH=$CACHE_DIR/polyml/lib:$LD_LIBRARY_PATH
+env: ENV_EXPORT_SCRIPT=devel/travis_env.sh
 
 
-before_script: 
-  - devel/install_poly.sh
-  - devel/install_hol4.sh
+jobs:
+  include:
+    - stage: "Prepare polyml"
+      before_script: devel/install_poly.sh
+      script: true
 
-script:
-  - cd src && ${CACHE_DIR}/HOL/bin/Holmake
+#    - stage: "Prepare hol4"
+#      before_script: devel/install_hol4.sh
+#      script: true
+
+    - stage: "Compilation"
+      before_script: devel/install_hol4.sh
+      script: devel/compile.sh
 
 
