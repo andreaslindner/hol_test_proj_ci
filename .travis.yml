@@ -19,11 +19,10 @@ jobs:
     - stage: "Prepare polyml & HOL4"
       before_script:
         - devel/install_poly.sh
+        - devel/install_hol4.sh
       script: true
 
     - stage: "Compilation"
-      before_script:
-        - devel/install_hol4.sh
       script: devel/compile.sh
 
 
