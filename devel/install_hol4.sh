@@ -8,7 +8,7 @@ mkdir -p ${CACHE_DIR}
 cd ${CACHE_DIR}
 
 # clone the right HOL4 branch
-git clone -b for_holba --single-branch git@github.com:kth-step/HOL.git
+git clone -b for_holba --single-branch git://github.com/kth-step/HOL.git
 cd HOL
 
 # compile HOL4
